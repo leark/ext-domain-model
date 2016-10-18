@@ -216,7 +216,7 @@ open class Person : CustomStringConvertible {
 //
 open class Family : CustomStringConvertible {
     fileprivate var members : [Person] = []
-    fileprivate var legal : Bool
+    public var legal : Bool
     
     public var description: String {
         var familyList = ""
@@ -231,7 +231,7 @@ open class Family : CustomStringConvertible {
         members.append(spouse2)
         spouse1._spouse = spouse2
         spouse2._spouse = spouse1
-        if spouse1.age < 21 && spouse2.age < 21 {
+        if spouse1.age < 21 || spouse2.age < 21 {
             legal = false
         } else {
             legal = true
