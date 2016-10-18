@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0377851DB6DBCF006C1251 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6182CD1DB5C6D9001A6A3B /* main.swift */; };
 		9D6182CE1DB5C6D9001A6A3B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6182CD1DB5C6D9001A6A3B /* main.swift */; };
 		9D6182DE1DB5CFE2001A6A3B /* ExtDomainModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6182DD1DB5CFE2001A6A3B /* ExtDomainModelTests.swift */; };
 /* End PBXBuildFile section */
@@ -183,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0377851DB6DBCF006C1251 /* main.swift in Sources */,
 				9D6182DE1DB5CFE2001A6A3B /* ExtDomainModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

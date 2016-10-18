@@ -186,7 +186,9 @@ open class Person : CustomStringConvertible {
             }
         }
         set(value) {
-            _spouse = value
+            if value!.age >= 21 {
+                _spouse = value
+            }
         }
     }
     
@@ -197,7 +199,15 @@ open class Person : CustomStringConvertible {
     }
     
     open func toString() -> String {
-        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(job) spouse:\(spouse)]"
+        if _job == nil && spouse == nil {
+            return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(_job?.title) spouse:\(spouse)]"
+        } else if _job != nil && spouse == nil {
+            return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(_job!.title) spouse:\(spouse)]"
+        } else if _job == nil && spouse != nil {
+            return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(_job?.title) spouse:\(spouse!.firstName + " " + spouse!.lastName)]"
+        } else {
+            return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(_job!.title) spouse:\(spouse!.firstName + " " + spouse!.lastName)]"
+        }
     }
 }
 
@@ -211,7 +221,7 @@ open class Family : CustomStringConvertible {
     public var description: String {
         var familyList = ""
         for member in members {
-            familyList += "Name: \(member.firstName) + \(member.lastName) "
+            familyList += "Name: \(member.firstName) \(member.lastName) "
         }
         return familyList
     }
