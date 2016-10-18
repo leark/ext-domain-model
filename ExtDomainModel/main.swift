@@ -33,7 +33,7 @@ public struct Money : CustomStringConvertible, Mathematics {
     public var amount : Double
     public var currency : currencyType
     
-    var description: String {
+    public var description: String {
         return "\(currency)\(amount)"
     }
     
@@ -99,13 +99,13 @@ public struct Money : CustomStringConvertible, Mathematics {
             return Money(amount: from.amount - convert(from.currency).amount, currency: from.currency)
         }
     }
-
-    static func +(lhs: Money, rhs: Money) -> Money {
-        return Money(amount: lhs.amount + rhs.convert(lhs.currency).amount, currency: lhs.currency)
+ 
+    static func +(left: Money, right: Money) -> Money {
+        return Money(amount: left.amount + right.convert(left.currency).amount, currency: left.currency)
     }
     
-    static func -(lhs: Money, rhs: Money) -> Money {
-        return Money(amount: lhs.amount - rhs.convert(lhs.currency).amount, currency: lhs.currency)
+    static func -(left: Money, right: Money) -> Money {
+        return Money(amount: left.amount - right.convert(left.currency).amount, currency: left.currency)
     }
 }
 
@@ -158,7 +158,7 @@ open class Person : CustomStringConvertible {
     open var lastName : String = ""
     open var age : Int = 0
     
-    var description: String {
+    public var description: String {
         return toString()
     }
     
@@ -208,7 +208,7 @@ open class Family : CustomStringConvertible {
     fileprivate var members : [Person] = []
     fileprivate var legal : Bool
     
-    var description: String {
+    public var description: String {
         var familyList = ""
         for member in members {
             familyList += "Name: \(member.firstName) + \(member.lastName) "
